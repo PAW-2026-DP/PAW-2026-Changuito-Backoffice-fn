@@ -1,5 +1,12 @@
 # Changuito - Backoffice
 
+---
+
+## Docs
+https://paw-2026-changuito-docs-git-master-jbrodi99s-projects.vercel.app/
+
+---
+
 Frontend de gestión de la aplicacion web Changuito, orientado a los supermercados adheridos y a los administradores de la plataforma.
 
 Esta primera version contiene solamente la estructura inicial del repositorio. No incluye archivos HTML, CSS ni JavaScript.
