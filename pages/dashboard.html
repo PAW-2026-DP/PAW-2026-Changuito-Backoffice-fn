@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Dashboard</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Dashboard</h1>
+    <form action="dashboard.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Administrador</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section aria-labelledby="kpis-titulo">
+      <h2 id="kpis-titulo">Indicadores</h2>
+      <ul>
+        <li>
+          <article>
+            <h3>Pedidos hoy</h3>
+            <p><data value="128">128</data></p>
+            <p>▲ 0% vs. mes anterior</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Ahorro generado</h3>
+            <p><data value="1200000">$ 1,2M</data></p>
+            <p>▲ 0% vs. mes anterior</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Comercios activos</h3>
+            <p><data value="34">34</data></p>
+            <p>▲ 0% vs. mes anterior</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Riders activos</h3>
+            <p><data value="57">57</data></p>
+            <p>▲ 0% vs. mes anterior</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="grafico-titulo">
+      <h2 id="grafico-titulo">Pedidos por día</h2>
+      <figure>
+        <img src="../assets/img/placeholder.svg" alt="Gráfico de pedidos por día del último mes" width="640" height="240">
+      </figure>
+    </section>
+
+    <section aria-labelledby="estados-titulo">
+      <h2 id="estados-titulo">Pedidos por estado</h2>
+      <dl>
+        <dt>PENDIENTE</dt>
+        <dd>10</dd>
+        <dt>EN PREPARACIÓN</dt>
+        <dd>17</dd>
+        <dt>LISTO PARA RETIRO</dt>
+        <dd>24</dd>
+        <dt>EN CAMINO</dt>
+        <dd>31</dd>
+        <dt>ENTREGADO</dt>
+        <dd>38</dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="ultimos-titulo">
+      <h2 id="ultimos-titulo">Últimos pedidos</h2>
+      <table>
+        <caption>Últimos pedidos recibidos</caption>
+        <thead>
+          <tr>
+            <th scope="col">Pedido</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Comercios</th>
+            <th scope="col">Rider</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a href="detalle-pedido.html">#1042</a></th>
+            <td>María Clara</td>
+            <td>A, B</td>
+            <td>—</td>
+            <td>EN PREPARACIÓN</td>
+            <td><data value="12400">$ 12.400</data></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="detalle-pedido.html">#1041</a></th>
+            <td>Pedro G.</td>
+            <td>C</td>
+            <td>Juan R.</td>
+            <td>EN CAMINO</td>
+            <td><data value="7200">$ 7.200</data></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="detalle-pedido.html">#1040</a></th>
+            <td>Ana L.</td>
+            <td>A</td>
+            <td>Luz M.</td>
+            <td>ENTREGADO</td>
+            <td><data value="9800">$ 9.800</data></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

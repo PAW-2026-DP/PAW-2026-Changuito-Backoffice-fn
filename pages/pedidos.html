@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Pedidos entrantes</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Pedidos entrantes</h1>
+    <form action="pedidos.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Supermercado</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html" aria-current="page">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- En desktop es un kanban de columnas; en mobile las pestañas llevan a cada columna. -->
+    <nav aria-label="Pestañas">
+      <ul>
+        <li><a href="#confirmados" aria-current="true">Nuevos (5)</a></li>
+        <li><a href="#en-preparacion">En preparación (3)</a></li>
+        <li><a href="#listos">Listos para retiro (2)</a></li>
+        <li><a href="pedidos.html?estado=retirados">Retirados</a></li>
+      </ul>
+    </nav>
+
+    <section id="confirmados" aria-labelledby="confirmados-titulo">
+      <h2 id="confirmados-titulo">CONFIRMADO</h2>
+      <ul>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1040</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <form action="detalle-pedido.html" method="post"><button type="submit">Iniciar preparación</button></form>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1041</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <form action="detalle-pedido.html" method="post"><button type="submit">Iniciar preparación</button></form>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1042</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <form action="detalle-pedido.html" method="post"><button type="submit">Iniciar preparación</button></form>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section id="en-preparacion" aria-labelledby="en-preparacion-titulo">
+      <h2 id="en-preparacion-titulo">EN PREPARACIÓN</h2>
+      <ul>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1043</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <form action="pedidos.html" method="post"><button type="submit">Marcar listo</button></form>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1044</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <form action="pedidos.html" method="post"><button type="submit">Marcar listo</button></form>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1045</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <form action="pedidos.html" method="post"><button type="submit">Marcar listo</button></form>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section id="listos" aria-labelledby="listos-titulo">
+      <h2 id="listos-titulo">LISTO PARA RETIRO</h2>
+      <ul>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1046</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <button type="button" disabled>Esperando rider</button>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1047</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <button type="button" disabled>Esperando rider</button>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="detalle-pedido.html">Pedido #1048</a></h3>
+            <p>18–19 h</p>
+            <p>6 productos · <data value="6100">$ 6.100</data></p>
+            <p>Multi-comercio (2)</p>
+            <button type="button" disabled>Esperando rider</button>
+          </article>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

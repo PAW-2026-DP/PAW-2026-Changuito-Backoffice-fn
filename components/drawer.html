@@ -1,0 +1,32 @@
+<!-- Componente: drawer mobile (cmp-drawer-bo-mobile), documentado en estado abierto
+     (backoffice-mobile/00-drawer-abierto). Mismo contenido que el sidebar más el selector de rol. -->
+<dialog open aria-labelledby="drawer-titulo">
+  <p id="drawer-titulo">Changuito BO</p>
+  <form method="dialog">
+    <button type="submit" aria-label="Cerrar menú">✕</button>
+  </form>
+  <nav aria-label="Menú del backoffice">
+    <ul>
+      <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+      <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+      <li><a href="comercios.html">Comercios</a></li>
+      <li><a href="sucursales.html">Sucursales</a></li>
+      <li><a href="zonas-costos.html">Zonas y costos</a></li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <form action="dashboard.html" method="get">
+    <label for="drawer-rol">Rol</label>
+    <select id="drawer-rol" name="rol">
+      <option value="administrador" selected>Administrador</option>
+      <option value="supermercado">Supermercado</option>
+    </select>
+    <button type="submit">Cambiar</button>
+  </form>
+</dialog>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Pedido #1042</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Pedido #1042 · Comercio A</h1>
+    <form action="pedidos.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Supermercado</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html" aria-current="page">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section aria-label="Estado del pedido">
+      <p><strong>EN PREPARACIÓN</strong></p>
+      <p>Confirmado <time datetime="2026-09-12T18:02">12/09/2026 18:02</time> · Retiro estimado <time datetime="2026-09-12T18:40">18:40</time></p>
+    </section>
+
+    <form id="preparacion" action="pedidos.html" method="post">
+      <section aria-labelledby="items-titulo">
+        <h2 id="items-titulo">Productos a preparar</h2>
+        <table>
+          <caption>Productos del pedido en Comercio A</caption>
+          <thead>
+            <tr>
+              <th scope="col">Preparado</th>
+              <th scope="col">Producto</th>
+              <th scope="col">SKU</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio confirmado</th>
+              <th scope="col">Faltante</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" name="preparado" value="7790001" checked aria-label="Leche entera 1L preparado"></td>
+              <th scope="row">Leche entera 1L</th>
+              <td>7790001</td>
+              <td>2</td>
+              <td><data value="2200">$ 2.200</data></td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="preparado" value="7790005" checked aria-label="Fideos 500g preparado"></td>
+              <th scope="row">Fideos 500g</th>
+              <td>7790005</td>
+              <td>3</td>
+              <td><data value="2400">$ 2.400</data></td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="preparado" value="7790006" aria-label="Arroz 1kg preparado"></td>
+              <th scope="row">Arroz 1kg</th>
+              <td>7790006</td>
+              <td>1</td>
+              <td><data value="900">$ 900</data></td>
+              <td><button type="submit" name="faltante" value="7790006">Marcar</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" name="preparado" value="7790007" aria-label="Aceite 900ml preparado"></td>
+              <th scope="row">Aceite 900ml</th>
+              <td>7790007</td>
+              <td>1</td>
+              <td><data value="600">$ 600</data></td>
+              <td><button type="submit" name="faltante" value="7790007">Marcar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </form>
+
+    <aside aria-labelledby="retiro-titulo">
+      <h2 id="retiro-titulo">Retiro</h2>
+      <p>Rider: Juan R. (asignado)</p>
+      <p>Código de retiro: <strong>4821</strong></p>
+      <h3>Otros comercios del pedido</h3>
+      <ul>
+        <li>Comercio B · LISTO</li>
+      </ul>
+      <p role="note">El precio confirmado se respeta aunque el catálogo haya cambiado.</p>
+      <button type="submit" form="preparacion" name="accion" value="listo">Marcar listo para retiro</button>
+      <button type="submit" form="preparacion" name="accion" value="cancelar">Cancelar pedido</button>
+    </aside>
+  </main>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Zonas de cobertura y costos</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Zonas de cobertura y costos</h1>
+    <form action="zonas-costos.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Administrador</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html" aria-current="page">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section aria-labelledby="zonas-titulo">
+      <h2 id="zonas-titulo">Zonas</h2>
+      <table>
+        <caption>Radios de cobertura por zona</caption>
+        <thead>
+          <tr>
+            <th scope="col">Zona</th>
+            <th scope="col">Radio mín.</th>
+            <th scope="col">Radio máx.</th>
+            <th scope="col">Comercios</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Luján centro</th>
+            <td>0,5 km</td>
+            <td>5 km</td>
+            <td>12</td>
+            <td><a href="#">✎ Editar</a> <button type="button" aria-label="Eliminar zona Luján centro">🗑</button></td>
+          </tr>
+          <tr>
+            <th scope="row">Luján norte</th>
+            <td>1 km</td>
+            <td>8 km</td>
+            <td>6</td>
+            <td><a href="#">✎ Editar</a> <button type="button" aria-label="Eliminar zona Luján norte">🗑</button></td>
+          </tr>
+          <tr>
+            <th scope="row">Gral. Rodríguez</th>
+            <td>1 km</td>
+            <td>10 km</td>
+            <td>9</td>
+            <td><a href="#">✎ Editar</a> <button type="button" aria-label="Eliminar zona Gral. Rodríguez">🗑</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure>
+        <img src="../assets/img/placeholder.svg" alt="Vista esquemática de los radios de cobertura de cada zona" width="400" height="300">
+        <figcaption>Vista de radios (esquemática) · ● radio máx.</figcaption>
+      </figure>
+    </section>
+
+    <section aria-labelledby="costos-titulo">
+      <h2 id="costos-titulo">Costo de envío <code>P(n) = P₀ + k·(n−1)^2.5</code></h2>
+      <form action="zonas-costos.html" method="post">
+        <table>
+          <caption>Costo de envío según tamaño y cantidad de comercios (n)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Tamaño</th>
+              <th scope="col">P₀ (base)</th>
+              <th scope="col">k (coef.)</th>
+              <th scope="col">P(1)</th>
+              <th scope="col">P(2)</th>
+              <th scope="col">P(3)</th>
+              <th scope="col">P(4)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Pequeño</th>
+              <td><input type="number" name="p0_pequeno" value="800" min="0" aria-label="P₀ tamaño pequeño"></td>
+              <td><input type="number" name="k_pequeno" value="300" min="0" aria-label="k tamaño pequeño"></td>
+              <td><output>$ 800</output></td>
+              <td><output>$ 1.100</output></td>
+              <td><output>$ 2.497</output></td>
+              <td><output>$ 5.476</output></td>
+            </tr>
+            <tr>
+              <th scope="row">Mediano</th>
+              <td><input type="number" name="p0_mediano" value="1200" min="0" aria-label="P₀ tamaño mediano"></td>
+              <td><input type="number" name="k_mediano" value="450" min="0" aria-label="k tamaño mediano"></td>
+              <td><output>—</output></td>
+              <td><output>—</output></td>
+              <td><output>—</output></td>
+              <td><output>—</output></td>
+            </tr>
+            <tr>
+              <th scope="row">Grande</th>
+              <td><input type="number" name="p0_grande" value="2000" min="0" aria-label="P₀ tamaño grande"></td>
+              <td><input type="number" name="k_grande" value="700" min="0" aria-label="k tamaño grande"></td>
+              <td><output>—</output></td>
+              <td><output>—</output></td>
+              <td><output>—</output></td>
+              <td><output>—</output></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          <label for="exponente">Exponente (fijo)</label>
+          <input type="number" id="exponente" name="exponente" value="2.5" step="0.1" readonly>
+        </p>
+        <button type="submit">Guardar costos</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
