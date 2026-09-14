@@ -5,6 +5,9 @@
 ## Docs
 https://paw-2026-changuito-docs-git-master-jbrodi99s-projects.vercel.app/
 
+## Design
+https://www.figma.com/design/ZeL7MqjxUKq20VJu6yR9Us/Changuito?node-id=1-30&t=3KUKUqvGq6uRYl1U-1
+
 ---
 
 Frontend de gestión de la aplicacion web Changuito, orientado a los supermercados adheridos y a los administradores de la plataforma.
