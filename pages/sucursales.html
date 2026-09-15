@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Sucursales</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Sucursales</h1>
+    <form action="sucursales.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Administrador</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html">Comercios</a></li>
+          <li><a href="sucursales.html" aria-current="page">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <form action="sucursales.html" method="get" role="search">
+      <label for="filtro-buscar">Buscar sucursal</label>
+      <input type="search" id="filtro-buscar" name="q" placeholder="Buscar…">
+      <label for="filtro-comercio">Comercio</label>
+      <select id="filtro-comercio" name="comercio">
+        <option value="">Todos</option>
+        <option value="a">Comercio A</option>
+        <option value="b">Comercio B</option>
+        <option value="c">Comercio C</option>
+      </select>
+      <label for="filtro-zona">Zona</label>
+      <select id="filtro-zona" name="zona">
+        <option value="">Todas</option>
+        <option value="lujan-centro">Luján centro</option>
+        <option value="lujan-norte">Luján norte</option>
+      </select>
+      <button type="submit">Filtrar</button>
+    </form>
+    <a href="#nueva-sucursal">+ Nueva sucursal</a>
+
+    <table>
+      <caption>Sucursales de comercios adheridos</caption>
+      <thead>
+        <tr>
+          <th scope="col">Sucursal</th>
+          <th scope="col">Comercio</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Zona</th>
+          <th scope="col">Horario</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Centro</th>
+          <td>Comercio A</td>
+          <td>Av. Siempre Viva 742</td>
+          <td>Luján centro</td>
+          <td>8–21 h</td>
+          <td><a href="#nueva-sucursal">✎ Editar</a> <button type="button" aria-label="Eliminar sucursal Centro">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Norte</th>
+          <td>Comercio A</td>
+          <td>Ruta 5 km 60</td>
+          <td>Luján norte</td>
+          <td>9–20 h</td>
+          <td><a href="#nueva-sucursal">✎ Editar</a> <button type="button" aria-label="Eliminar sucursal Norte">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Única</th>
+          <td>Comercio C</td>
+          <td>San Martín 100</td>
+          <td>Luján centro</td>
+          <td>8–13 / 17–21</td>
+          <td><a href="#nueva-sucursal">✎ Editar</a> <button type="button" aria-label="Eliminar sucursal Única">🗑</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <aside id="nueva-sucursal" aria-labelledby="nueva-sucursal-titulo">
+      <h2 id="nueva-sucursal-titulo">Nueva sucursal</h2>
+      <form action="sucursales.html" method="post">
+        <p>
+          <label for="sucursal-nombre">Nombre</label>
+          <input type="text" id="sucursal-nombre" name="nombre" required>
+        </p>
+        <p>
+          <label for="sucursal-direccion">Dirección</label>
+          <input type="text" id="sucursal-direccion" name="direccion" required>
+        </p>
+        <p>
+          <label for="sucursal-horario">Horario</label>
+          <input type="text" id="sucursal-horario" name="horario" placeholder="8–21 h">
+        </p>
+        <p>
+          <label for="sucursal-comercio">Comercio</label>
+          <select id="sucursal-comercio" name="comercio" required>
+            <option value="">Seleccionar</option>
+            <option value="a">Comercio A</option>
+            <option value="b">Comercio B</option>
+            <option value="c">Comercio C</option>
+          </select>
+        </p>
+        <p>
+          <label for="sucursal-zona">Zona de cobertura</label>
+          <select id="sucursal-zona" name="zona" required>
+            <option value="">Seleccionar</option>
+            <option value="lujan-centro">Luján centro</option>
+            <option value="lujan-norte">Luján norte</option>
+            <option value="gral-rodriguez">Gral. Rodríguez</option>
+          </select>
+        </p>
+        <button type="submit">Guardar</button>
+      </form>
+    </aside>
+  </main>
+</body>
+</html>

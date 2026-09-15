@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Catálogo</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Catálogo · Comercio A</h1>
+    <form action="catalogo.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Supermercado</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html" aria-current="page">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <form action="catalogo.html" method="get" role="search">
+      <label for="filtro-buscar">Buscar producto</label>
+      <input type="search" id="filtro-buscar" name="q" placeholder="Buscar…">
+      <label for="filtro-categoria">Categoría</label>
+      <select id="filtro-categoria" name="categoria">
+        <option value="">Todas</option>
+        <option value="frescos">Frescos</option>
+        <option value="almacen">Almacén</option>
+        <option value="limpieza">Limpieza</option>
+        <option value="bebidas">Bebidas</option>
+      </select>
+      <label for="filtro-stock">Stock</label>
+      <select id="filtro-stock" name="stock">
+        <option value="">Todos</option>
+        <option value="con-stock">Con stock</option>
+        <option value="sin-stock">Sin stock</option>
+      </select>
+      <button type="submit">Filtrar</button>
+    </form>
+    <a href="carga-catalogo.html">Carga masiva</a>
+    <a href="#editar-producto">+ Nuevo producto</a>
+
+    <table>
+      <caption>Productos del catálogo</caption>
+      <thead>
+        <tr>
+          <th scope="col">Seleccionar</th>
+          <th scope="col">Producto</th>
+          <th scope="col">SKU</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Actualizado</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" name="seleccion" value="7790001" aria-label="Seleccionar Leche entera 1L"></td>
+          <th scope="row">Leche entera 1L</th>
+          <td>7790001</td>
+          <td>Frescos</td>
+          <td><data value="1100">$ 1.100</data></td>
+          <td>120</td>
+          <td>hace 2 h</td>
+          <td><a href="#editar-producto">✎ Editar</a> <button type="button" aria-label="Eliminar Leche entera 1L">🗑</button></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="seleccion" value="7790002" aria-label="Seleccionar Yerba mate 1kg"></td>
+          <th scope="row">Yerba mate 1kg</th>
+          <td>7790002</td>
+          <td>Almacén</td>
+          <td><data value="3100">$ 3.100</data></td>
+          <td>45</td>
+          <td>hace 2 h</td>
+          <td><a href="#editar-producto">✎ Editar</a> <button type="button" aria-label="Eliminar Yerba mate 1kg">🗑</button></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="seleccion" value="7790003" aria-label="Seleccionar Detergente 750ml"></td>
+          <th scope="row">Detergente 750ml</th>
+          <td>7790003</td>
+          <td>Limpieza</td>
+          <td><data value="1500">$ 1.500</data></td>
+          <td>0</td>
+          <td>hace 1 día</td>
+          <td><a href="#editar-producto">✎ Editar</a> <button type="button" aria-label="Eliminar Detergente 750ml">🗑</button></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="seleccion" value="7790004" aria-label="Seleccionar Gaseosa 2.25L"></td>
+          <th scope="row">Gaseosa 2.25L</th>
+          <td>7790004</td>
+          <td>Bebidas</td>
+          <td><data value="2300">$ 2.300</data></td>
+          <td>80</td>
+          <td>hace 3 h</td>
+          <td><a href="#editar-producto">✎ Editar</a> <button type="button" aria-label="Eliminar Gaseosa 2.25L">🗑</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <aside id="editar-producto" aria-labelledby="editar-producto-titulo">
+      <h2 id="editar-producto-titulo">Editar producto</h2>
+      <form action="catalogo.html" method="post" enctype="multipart/form-data">
+        <figure>
+          <img src="../assets/img/placeholder.svg" alt="Imagen de Leche entera 1L" width="160" height="120">
+        </figure>
+        <p>
+          <label for="producto-imagen">Imagen</label>
+          <input type="file" id="producto-imagen" name="imagen" accept="image/*">
+        </p>
+        <p>
+          <label for="producto-nombre">Nombre</label>
+          <input type="text" id="producto-nombre" name="nombre" value="Leche entera 1L" required>
+        </p>
+        <p>
+          <label for="producto-precio">Precio</label>
+          <input type="number" id="producto-precio" name="precio" value="1100" min="0" step="0.01" required>
+        </p>
+        <p>
+          <label for="producto-stock">Stock</label>
+          <input type="number" id="producto-stock" name="stock" value="120" min="0" required>
+        </p>
+        <p>
+          <label for="producto-categoria">Categoría</label>
+          <select id="producto-categoria" name="categoria">
+            <option value="frescos" selected>Frescos</option>
+            <option value="almacen">Almacén</option>
+            <option value="limpieza">Limpieza</option>
+            <option value="bebidas">Bebidas</option>
+          </select>
+        </p>
+        <button type="submit">Guardar</button>
+      </form>
+    </aside>
+  </main>
+</body>
+</html>

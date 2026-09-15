@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Carga de catálogo</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Carga de catálogo</h1>
+    <form action="catalogo.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Supermercado</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html" aria-current="page">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <nav aria-label="Modalidad de integración">
+      <ul>
+        <li><a href="carga-catalogo.html?modalidad=1">1 · Planilla estándar</a></li>
+        <li><a href="carga-catalogo.html?modalidad=2" aria-current="true">2 · Mapeo de columnas</a></li>
+        <li><a href="carga-catalogo.html?modalidad=3">3 · Integración directa</a></li>
+      </ul>
+    </nav>
+
+    <form action="carga-catalogo.html" method="post" enctype="multipart/form-data">
+      <section aria-labelledby="archivo-titulo">
+        <h2 id="archivo-titulo">Archivo</h2>
+        <p>
+          <label for="archivo">Arrastrá tu archivo CSV / Excel</label>
+          <input type="file" id="archivo" name="archivo" accept=".csv,.xls,.xlsx" required>
+        </p>
+        <p>catalogo_septiembre.xlsx · 1.240 filas</p>
+        <p><a href="#" download>Descargar planilla modelo ↓</a></p>
+      </section>
+
+      <section aria-labelledby="mapeo-titulo">
+        <h2 id="mapeo-titulo">Mapeo de columnas</h2>
+        <p><small>Se guarda para próximas cargas.</small></p>
+        <table>
+          <caption>Correspondencia entre columnas del archivo y campos de Changuito</caption>
+          <thead>
+            <tr>
+              <th scope="col">Columna en tu archivo</th>
+              <th scope="col">Ejemplo</th>
+              <th scope="col">Campo en Changuito</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Cod. Barra</th>
+              <td>7790001</td>
+              <td>
+                <select name="mapeo_cod_barra" aria-label="Campo para Cod. Barra">
+                  <option value="sku" selected>SKU</option>
+                  <option value="nombre">Nombre</option>
+                  <option value="precio">Precio de venta</option>
+                  <option value="stock">Stock</option>
+                  <option value="categoria">Categoría</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Descripcion</th>
+              <td>Leche entera 1L</td>
+              <td>
+                <select name="mapeo_descripcion" aria-label="Campo para Descripcion">
+                  <option value="sku">SKU</option>
+                  <option value="nombre" selected>Nombre</option>
+                  <option value="precio">Precio de venta</option>
+                  <option value="stock">Stock</option>
+                  <option value="categoria">Categoría</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Precio Unit.</th>
+              <td>1100</td>
+              <td>
+                <select name="mapeo_precio_unit" aria-label="Campo para Precio Unit.">
+                  <option value="sku">SKU</option>
+                  <option value="nombre">Nombre</option>
+                  <option value="precio" selected>Precio de venta</option>
+                  <option value="stock">Stock</option>
+                  <option value="categoria">Categoría</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Cant.</th>
+              <td>120</td>
+              <td>
+                <select name="mapeo_cant" aria-label="Campo para Cant.">
+                  <option value="sku">SKU</option>
+                  <option value="nombre">Nombre</option>
+                  <option value="precio">Precio de venta</option>
+                  <option value="stock" selected>Stock</option>
+                  <option value="categoria">Categoría</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Rubro</th>
+              <td>LACTEOS</td>
+              <td>
+                <select name="mapeo_rubro" aria-label="Campo para Rubro">
+                  <option value="sku">SKU</option>
+                  <option value="nombre">Nombre</option>
+                  <option value="precio">Precio de venta</option>
+                  <option value="stock">Stock</option>
+                  <option value="categoria" selected>Categoría</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="validacion-titulo">
+        <h2 id="validacion-titulo">Validación de formato</h2>
+        <p>✓ 1.238 filas válidas</p>
+        <p>✕ 2 filas con error → la carga se rechaza completa (sin cargas parciales)</p>
+        <a href="#">Ver errores</a>
+        <button type="submit">Procesar carga</button>
+      </section>
+    </form>
+
+    <section aria-labelledby="historial-titulo">
+      <h2 id="historial-titulo">Historial de cargas</h2>
+      <table>
+        <caption>Cargas de catálogo anteriores</caption>
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Archivo</th>
+            <th scope="col">Modalidad</th>
+            <th scope="col">Resultado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><time datetime="2026-09-05">05/09/2026</time></td>
+            <th scope="row">catalogo_ago.xlsx</th>
+            <td>Mapeo</td>
+            <td>OK · 1.201 filas</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

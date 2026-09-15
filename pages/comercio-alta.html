@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Alta de comercio</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Alta de comercio</h1>
+    <form action="comercios.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Administrador</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html" aria-current="page">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <nav aria-label="Pestañas">
+      <ul>
+        <li><a href="#datos" aria-current="true">Datos</a></li>
+        <li><a href="#integracion">Integración</a></li>
+        <li><a href="#comision">Comisión</a></li>
+        <li><a href="sucursales.html">Sucursales</a></li>
+      </ul>
+    </nav>
+
+    <form action="comercios.html" method="post" enctype="multipart/form-data">
+      <fieldset id="datos">
+        <legend>Datos del comercio</legend>
+        <p>
+          <label for="razon-social">Razón social</label>
+          <input type="text" id="razon-social" name="razon_social" required>
+        </p>
+        <p>
+          <label for="cuit">CUIT</label>
+          <input type="text" id="cuit" name="cuit" placeholder="00-00000000-0" pattern="\d{2}-\d{8}-\d" required>
+        </p>
+        <p>
+          <label for="nombre-comercial">Nombre comercial</label>
+          <input type="text" id="nombre-comercial" name="nombre_comercial" required>
+        </p>
+        <p>
+          <label for="email">Email de contacto</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </p>
+        <p>
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+        </p>
+        <p>
+          <label for="responsable">Responsable</label>
+          <input type="text" id="responsable" name="responsable">
+        </p>
+      </fieldset>
+
+      <fieldset id="integracion">
+        <legend>Integración</legend>
+        <p>
+          <label for="modalidad">Modalidad de integración</label>
+          <select id="modalidad" name="modalidad">
+            <option value="1" selected>1 · Planilla estándar</option>
+            <option value="2">2 · Mapeo de columnas</option>
+            <option value="3">3 · Integración directa</option>
+          </select>
+        </p>
+        <p>
+          <input type="checkbox" id="beneficio" name="beneficio_integracion_temprana" checked>
+          <label for="beneficio">Beneficio de integración temprana</label>
+        </p>
+      </fieldset>
+
+      <fieldset id="comision">
+        <legend>Comisión y logo</legend>
+        <p>
+          <label for="comision-porcentaje">Comisión (%)</label>
+          <select id="comision-porcentaje" name="comision">
+            <option value="3" selected>3%</option>
+            <option value="5">5%</option>
+            <option value="8">8%</option>
+          </select>
+        </p>
+        <p>
+          <label for="logo">Logo</label>
+          <input type="file" id="logo" name="logo" accept="image/*">
+          <small>Arrastrá una imagen o hacé clic</small>
+        </p>
+      </fieldset>
+
+      <a href="comercios.html">Cancelar</a>
+      <button type="submit">Guardar comercio</button>
+    </form>
+  </main>
+</body>
+</html>

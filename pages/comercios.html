@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Comercios</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Comercios</h1>
+    <form action="comercios.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Administrador</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html">Usuarios y roles</a></li>
+          <li><a href="comercios.html" aria-current="page">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <form action="comercios.html" method="get" role="search">
+      <label for="filtro-buscar">Buscar comercio</label>
+      <input type="search" id="filtro-buscar" name="q" placeholder="Buscar…">
+      <label for="filtro-modalidad">Modalidad</label>
+      <select id="filtro-modalidad" name="modalidad">
+        <option value="">Todas</option>
+        <option value="1">1 · Planilla</option>
+        <option value="2">2 · Mapeo</option>
+        <option value="3">3 · Integración directa</option>
+      </select>
+      <label for="filtro-nivel">Nivel</label>
+      <select id="filtro-nivel" name="nivel">
+        <option value="">Todos</option>
+        <option value="oro">Oro</option>
+        <option value="plata">Plata</option>
+        <option value="bronce">Bronce</option>
+      </select>
+      <label for="filtro-estado">Estado</label>
+      <select id="filtro-estado" name="estado">
+        <option value="">Todos</option>
+        <option value="activo">Activo</option>
+        <option value="alerta">Alerta</option>
+        <option value="suspendido">Suspendido</option>
+      </select>
+      <button type="submit">Filtrar</button>
+    </form>
+    <a href="comercio-alta.html">+ Alta de comercio</a>
+
+    <table>
+      <caption>Comercios adheridos</caption>
+      <thead>
+        <tr>
+          <th scope="col">Comercio</th>
+          <th scope="col">Sucursales</th>
+          <th scope="col">Modalidad integración</th>
+          <th scope="col">Últ. actualización</th>
+          <th scope="col">Nivel</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Comercio A</th>
+          <td>4</td>
+          <td>3 · Integración directa</td>
+          <td>hace 5 min</td>
+          <td>Oro</td>
+          <td>Activo</td>
+          <td><a href="comercio-alta.html">✎ Editar</a> <button type="button" aria-label="Eliminar Comercio A">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Comercio B</th>
+          <td>2</td>
+          <td>2 · Mapeo</td>
+          <td>hace 2 días</td>
+          <td>Plata</td>
+          <td>Activo</td>
+          <td><a href="comercio-alta.html">✎ Editar</a> <button type="button" aria-label="Eliminar Comercio B">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Comercio C</th>
+          <td>1</td>
+          <td>1 · Planilla</td>
+          <td>hace 9 días <abbr title="Catálogo desactualizado">⚠</abbr></td>
+          <td>Bronce</td>
+          <td>Alerta</td>
+          <td><a href="comercio-alta.html">✎ Editar</a> <button type="button" aria-label="Eliminar Comercio C">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Comercio D</th>
+          <td>1</td>
+          <td>3 · Integración directa</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Suspendido</td>
+          <td><a href="comercio-alta.html">✎ Editar</a> <button type="button" aria-label="Eliminar Comercio D">🗑</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <nav aria-label="Paginación">
+      <ul>
+        <li><a href="#" aria-label="Página anterior">‹</a></li>
+        <li><a href="#" aria-current="page">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li>…</li>
+        <li><a href="#" aria-label="Página siguiente">›</a></li>
+      </ul>
+    </nav>
+  </main>
+</body>
+</html>

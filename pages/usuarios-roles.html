@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changuito BO · Usuarios y roles</title>
+</head>
+<body>
+  <header>
+    <a href="#menu" aria-label="Abrir menú">☰</a>
+    <h1>Usuarios y roles</h1>
+    <form action="usuarios-roles.html" method="get" role="search">
+      <label for="buscar">Buscar</label>
+      <input type="search" id="buscar" name="q" placeholder="Buscar…">
+      <button type="submit">Buscar</button>
+    </form>
+    <p><img src="../assets/img/placeholder.svg" alt="" width="32" height="32"> Admin · <small>Administrador</small></p>
+  </header>
+
+  <nav id="menu" aria-label="Menú del backoffice">
+    <p><a href="dashboard.html">Changuito BO</a></p>
+    <ul>
+      <li>Administración
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="usuarios-roles.html" aria-current="page">Usuarios y roles</a></li>
+          <li><a href="comercios.html">Comercios</a></li>
+          <li><a href="sucursales.html">Sucursales</a></li>
+          <li><a href="zonas-costos.html">Zonas y costos</a></li>
+        </ul>
+      </li>
+      <li>Supermercado
+        <ul>
+          <li><a href="catalogo.html">Catálogo</a></li>
+          <li><a href="carga-catalogo.html">Carga de catálogo</a></li>
+          <li><a href="pedidos.html">Pedidos</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <form action="usuarios-roles.html" method="get" role="search">
+      <label for="filtro-buscar">Buscar usuario</label>
+      <input type="search" id="filtro-buscar" name="q" placeholder="Buscar…">
+      <label for="filtro-rol">Rol</label>
+      <select id="filtro-rol" name="rol">
+        <option value="">Todos</option>
+        <option value="cliente">Cliente</option>
+        <option value="repartidor">Repartidor</option>
+        <option value="supermercado">Supermercado</option>
+        <option value="administrador">Administrador</option>
+      </select>
+      <label for="filtro-estado">Estado</label>
+      <select id="filtro-estado" name="estado">
+        <option value="">Todos</option>
+        <option value="activo">Activo</option>
+        <option value="suspendido">Suspendido</option>
+      </select>
+      <button type="submit">Filtrar</button>
+    </form>
+    <a href="#">+ Nuevo usuario</a>
+
+    <table>
+      <caption>Usuarios registrados</caption>
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Email</th>
+          <th scope="col">Rol</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Alta</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">María Clara</th>
+          <td>mc@mail.com</td>
+          <td>Cliente</td>
+          <td>Activo</td>
+          <td><time datetime="2026-08-01">01/08/2026</time></td>
+          <td><a href="#cambiar-rol">✎ Editar</a> <button type="button" aria-label="Eliminar María Clara">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Juan Rider</th>
+          <td>jr@mail.com</td>
+          <td>Repartidor</td>
+          <td>Activo</td>
+          <td><time datetime="2026-08-15">15/08/2026</time></td>
+          <td><a href="#cambiar-rol">✎ Editar</a> <button type="button" aria-label="Eliminar Juan Rider">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Súper A</th>
+          <td>a@super.com</td>
+          <td>Supermercado</td>
+          <td>Activo</td>
+          <td><time datetime="2026-08-20">20/08/2026</time></td>
+          <td><a href="#cambiar-rol">✎ Editar</a> <button type="button" aria-label="Eliminar Súper A">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Admin</th>
+          <td>admin@changuito.com</td>
+          <td>Administrador</td>
+          <td>Activo</td>
+          <td><time datetime="2026-07-01">01/07/2026</time></td>
+          <td><a href="#cambiar-rol">✎ Editar</a> <button type="button" aria-label="Eliminar Admin">🗑</button></td>
+        </tr>
+        <tr>
+          <th scope="row">Pedro G.</th>
+          <td>pg@mail.com</td>
+          <td>Cliente</td>
+          <td>Suspendido</td>
+          <td><time datetime="2026-09-03">03/09/2026</time></td>
+          <td><a href="#cambiar-rol">✎ Editar</a> <button type="button" aria-label="Eliminar Pedro G.">🗑</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <nav aria-label="Paginación">
+      <ul>
+        <li><a href="#" aria-label="Página anterior">‹</a></li>
+        <li><a href="#" aria-current="page">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li>…</li>
+        <li><a href="#" aria-label="Página siguiente">›</a></li>
+      </ul>
+    </nav>
+
+    <!-- Estado abierto del modal de cambio de rol (ver wireframe backoffice/03-usuarios-roles). -->
+    <dialog id="cambiar-rol" open aria-labelledby="cambiar-rol-titulo">
+      <form action="usuarios-roles.html" method="post">
+        <h2 id="cambiar-rol-titulo">Cambiar rol de usuario</h2>
+        <a href="usuarios-roles.html" aria-label="Cerrar">✕</a>
+        <p>Usuario: Pedro G. (pg@mail.com)</p>
+        <p>
+          <label for="nuevo-rol">Nuevo rol</label>
+          <select id="nuevo-rol" name="rol">
+            <option value="cliente" selected>Cliente</option>
+            <option value="repartidor">Repartidor</option>
+            <option value="supermercado">Supermercado</option>
+            <option value="administrador">Administrador</option>
+          </select>
+        </p>
+        <a href="usuarios-roles.html">Cancelar</a>
+        <button type="submit">Confirmar</button>
+      </form>
+    </dialog>
+  </main>
+</body>
+</html>
